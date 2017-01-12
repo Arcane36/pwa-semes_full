@@ -1,0 +1,52 @@
+//IMPORTS
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import "modules/mixins";
+@import "modules/variables";
+
+html, body {
+    padding: 0;
+    font-family: 'Open Sans', 'Ubuntu', sans-serif;
+}
+
+
+.message {
+    width: 100%;
+}
+
+.thread-box {
+    width: 31%;
+    float: left;
+    margin: 1%;
+}
+
+.submit-btn {
+    float: left;
+}
+
+html {
+    position: relative;
+    height: 100%;
+    font-size: 62.5%;
+}
+body {
+    display: flex; /*STICKY FOOTER*/
+    min-height: 100%; /*STICKY FOOTER*/
+    flex-direction: column; /*STICKY FOOTER*/
+}
+
+.content {
+    flex: 1; /*STICKY FOOTER*/
+    -ms-flex: 1 0 auto; /*STICKY FOOTER*/
+
+}
+.footer {
+    border-top: 1px solid $font_color_grey;
+    background-color: $main_white;
+
+    &__text {
+        text-align: center;
+        color: $font_color_grey;
+        padding-top: 10px;
+    }
+}

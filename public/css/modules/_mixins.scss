@@ -1,0 +1,39 @@
+
+@mixin transition($options...) {
+    -webkit-transition: $options;
+    -moz-transition: $options;
+    -ms-transition: $options;
+    -o-transition: $options;
+    transition: $options;
+}
+
+@mixin border_radius($options) {
+    -webkit-border-radius: $options;
+    -moz-border-radius: $options;
+    border-radius: $options;
+}
+
+@mixin linear_gradient($angle, $colors...) {
+    background: nth(nth($colors, 1), 1); /* Fallback to get the first color - Old browsers */
+    background: -moz-linear-gradient($angle,  $colors); /* FF3.6-15 */
+    background: -webkit-linear-gradient($angle,  $colors); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(180deg - $angle,  $colors); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+@function calculateRem($size) {
+    $remSize: $size / 16px;
+    @return $remSize * 1rem;
+}
+
+/* calculates Rem size from Px. In case of browser not supporting Rem, it will use Px */
+@mixin font-size($size) {
+    font-size: $size;
+    font-size: calculateRem($size);
+}
+
+/* Cross browser opacity compatibility */
+@mixin opacity($opacity) {
+    opacity: $opacity;
+    $opacity-ie: $opacity * 100;
+    filter: alpha(opacity=$opacity-ie); //IE8
+}
